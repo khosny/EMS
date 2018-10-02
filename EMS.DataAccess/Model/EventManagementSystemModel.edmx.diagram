@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eb395ada27f8496abf353529ae26dd87" Name="Diagram1">
+        <EntityTypeShape EntityType="EventManagementSystemModel.Hotel" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.HotelRoom" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.LUT_PersonType" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.LUT_Sector" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Person" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.PersonAvailability" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Reservation" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.sysdiagram" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_HotelRoom_Hotel" ManuallyRouted="false" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Reservation_HotelRoom" ManuallyRouted="false" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Person_LUT_PersonType" ManuallyRouted="false" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_PersonAvailability_LUT_Sector" ManuallyRouted="false" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_PersonAvailability_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Reservation_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Reservation_Person1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.HotelRoomAvailability" Width="1.5" PointX="8.25" PointY="7.5" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_HotelRoomAvailability_HotelRoom" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
