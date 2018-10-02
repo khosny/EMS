@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Create New Investor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Investor</h2>
+
+@Html.Partial("PersonView", "");
+
+
+@Scripts.Render("~/bundles/personOPS")
+@section Scripts{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            LoadPersonOPS("/api/Investor", "Investor Added Sucessfully");
+        });
+    </script>
+}

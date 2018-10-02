@@ -1,0 +1,84 @@
+﻿@model string
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h5>Basic Info:</h5>
+        <div class="form-group">
+            <input type="text" id="txt_Name" class="form-control" placeholder="Name" />
+        </div>
+        <div class="form-group">
+            <input type="text" id="txt_Mobile" class="form-control" placeholder="Mobile" />
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <h5>Sector:</h5>
+            <select id="drp_Sector" class="form-control">
+                <option value="">Select Sector</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <h5>Available Timing</h5>
+            <div style="padding-left:0px" class="form-group col-md-12">
+                <input type="text" class="form-control" placeholder="Select Day" id="txt_Date" />
+            </div>
+            <div style="padding-left:0px;" class="form-group col-md-6">
+                <select id="drp_Start" class="form-control">
+                    <option value="">Select Start</option>
+                    <option value="10">8:00 AM</option>
+                    <option value="11">9:00 AM</option>
+                    <option value="12">10:00 AM</option>
+                    <option value="13">11:00 AM</option>
+                    <option value="14">12:00 PM</option>
+                    <option value="15">1:00 PM</option>
+                    <option value="16">2:00 PM</option>
+                    <option value="17">3:00 PM</option>
+                    <option value="18">4:00 PM</option>
+                    <option value="19">5:00 PM</option>
+                    <option value="20">6:00 PM</option>
+                    <option value="21">7:00 PM</option>
+                    <option value="22">8:00 PM</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <select id="drp_End" class="form-control">
+                    <option value="">Select End</option>
+                    <option value="10">8:00 AM</option>
+                    <option value="11">9:00 AM</option>
+                    <option value="12">10:00 AM</option>
+                    <option value="13">11:00 AM</option>
+                    <option value="14">12:00 PM</option>
+                    <option value="15">1:00 PM</option>
+                    <option value="16">2:00 PM</option>
+                    <option value="17">3:00 PM</option>
+                    <option value="18">4:00 PM</option>
+                    <option value="19">5:00 PM</option>
+                    <option value="20">6:00 PM</option>
+                    <option value="21">7:00 PM</option>
+                    <option value="22">8:00 PM</option>
+                </select>
+            </div>
+        </div>
+        <button id="btn_AddSector" class="btn btn-info">Add Sector and Timing</button>
+    </div>
+    <div class="col-md-4">
+        <h5></h5>
+        <table id="tbl_Sectors" class="table table-striped">
+            <thead>
+                <tr><th>Selected Sectors With Timing</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <button id="btn_AddPerson" class="btn btn-primary">Save</button>
+    </div>
+</div>
+
+
+

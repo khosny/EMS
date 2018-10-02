@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Create New Presenter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Presenter</h2>
+
+@Html.Partial("PersonView", "");
+
+@Scripts.Render("~/bundles/personOPS")
+@section Scripts{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            LoadPersonOPS("/api/Presenter", "Presenter Added Sucessfully");
+        });
+    </script>
+}

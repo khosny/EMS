@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Reserve";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reserve</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="drp_investor">Investor:</label>
+                <select class="form-control" id="drp_investor">
+                    <option value="">Select Investor</option>
+                </select>
+            </div>
+            <div id="div_Sector" class="form-group hide">
+                <label for="drp_investorSector">Investor Sectors:</label>
+                <select class="form-control" id="drp_investorSector">
+                    <option value="">Select Sector</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="div_presenter" class="form-group hide">
+                <label for="drp_presenter">Presenter:</label>
+                <select class="form-control" id="drp_presenter">
+                    <option value="">Select Presenter</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="div_hotel" class="form-group hide">
+                <label for="drp_hotel">Hotel:</label>
+                <select class="form-control" id="drp_hotel">
+                    <option value="">Select Hotel</option>
+                </select>
+            </div>
+            <div id="div_hotelRooms" class="form-group hide">
+                <label for="drp_hotelRooms">Hotel Rooms:</label>
+                <select class="form-control" id="drp_hotelRooms">
+                    <option value="">Select Room</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="col-md-12">
+        <button id="btn_AddMeeting" class="btn btn-primary pull-right" disabled >Create Investor-Presenter Meeting</button>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        function LoadInvestors() {
+            $.ajax({
+                url: "/api/Investor",
+                method: "GET",
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                    $.each(res, function (k, v) {
+                        $('#drp_investor').append($('<option>', { text: v.Name, value: v.Id }));
+                    });
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        };
+        function RegisterSelectionChanges() {
+            var selectedInvestorId;
+            $('#drp_investor').change(function () {
+                selectedInvestorId = $(this).val();
+                $.ajax({
+                    url: "/api/Investor/" + selectedInvestorId,
+                    method: "GET",
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log(res);
+                        var addedSector = '';
+                        $.each(res.InterestedSectors, function (k, v) {
+                            if (addedSector.indexOf('' + v.Id) < 0) {
+                                $('#drp_investorSector').append($('<option>', { text: v.Name, value: v.Id }));
+                                addedSector += v.Id + '';
+                            }
+                        });
+                        $('#div_Sector').removeClass('hide');
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            });
+
+            $('#drp_investorSector').change(function () {
+                var selectedSectorId = $(this).val();
+                $.ajax({
+                    url: "/api/Presenter/" + selectedInvestorId + '/' + selectedSectorId,
+                    method: "GET",
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log(res);
+                       
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            });
+        };
+
+
+        $(document).ready(function () {
+            LoadInvestors();
+            RegisterSelectionChanges();
+        });
+
+
+
+    </script>
+}
